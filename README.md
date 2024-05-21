@@ -1,6 +1,6 @@
 
 
-This project is designed to test prompts and prompt returns specifically for web scraping purposes that target structured data (ld+json) and microdata.
+Test and create benchmarked tests for prompts and prompt returns in your application. Currently specifically for web scraping purposes that target structured data (ld+json) and microdata against the openai api using prompting.
 
 
 ## Installation
