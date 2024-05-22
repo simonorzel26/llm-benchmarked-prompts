@@ -21,12 +21,25 @@ export function tokenCountComparison(extractedData: string, knownData: string, m
 	const extractedTokens = tokenCount(extractedData, model);
 	const knownTokens = tokenCount(knownData, model);
 
-	const accuracy = extractedTokens / knownTokens;
+	if (extractedTokens === 0 && knownTokens === 0) {
+		return { accuracy: 1 };
+	}
+
+	if (extractedTokens === 0 || knownTokens === 0) {
+		return { accuracy: 0 };
+	}
+
+	const minTokens = Math.min(extractedTokens, knownTokens);
+	const maxTokens = Math.max(extractedTokens, knownTokens);
+
+	const accuracy = minTokens / maxTokens;
 
 	return {
 		accuracy: Number.parseFloat(accuracy.toFixed(4)),
 	};
 }
+
+
 
 export function compareStrings(string1: string, string2: string, algorithm: Algorithms): ComparisonResult {
   let result: ComparisonResult = { similarity: 0};
