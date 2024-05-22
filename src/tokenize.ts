@@ -1,5 +1,6 @@
 import openaiTokenCounter, { type ModelType } from 'openai-gpt-token-counter';
+import { DEFAULT_MODEL_OPENAI } from './constants';
 
-export function tokenize(text: string, model: ModelType = "gpt-3.5-turbo"): number {
+export function tokenCount(text: string, model: ModelType = DEFAULT_MODEL_OPENAI): number {
   return openaiTokenCounter.text(text, model);
 }
